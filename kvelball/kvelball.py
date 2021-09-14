@@ -1,4 +1,17 @@
 # -*- coding: utf-8 -*-
+'''
+print('\n')
+print(58*'#')
+print('KVELBALL.PY'.center(58))
+print('Velocidade da bola'.center(58))
+print('Prof. PAULO R. P. SANTIAGO'.center(58))
+print('LaBioCoM-EEFERP-USP'.center(58))
+print('paulosantiago@usp.br'.center(58))
+print('Created on 12/04/2020 - Update on 01/06/2020'.center(58))
+print(58*'#')
+print('\n')
+'''
+
 import numpy as np
 import pandas as pd
 import scipy as sp
@@ -10,18 +23,14 @@ import sys
 
 
 
-# %% Modo Matlab
 # %% Calibration DLT
 def dlt_calib(cp3d, cp2d):
 
 # =============================================================================
 #                DLT 3D  
 # Calcula os parametros do DLT
-# para executá-la, digite os comandos abaixos
-# import rec3d
-# DLT = rec3d.dlt_calib(cp3d, cd2d)
 # onde:
-# DLT  = vetor linha com os parametros do DLT calculados
+# dlet_calib = vetor linha com os parametros do DLT calculados
 # [L1,L2,L3...L11]
 # cp3d = matriz retangular com as coordenadas 3d (X, Y, Z) dos pontos (p) do calibrador
 # Xp1 Yp1 Zp1
@@ -112,23 +121,57 @@ def rec3d_ide(c1=None, c2=None, ref=None):
     return cc3d
 
 
-   
+def cart2sph(x,y,z):
+    azimuth = np.arctan2(y,x)
+    elevation = np.arctan2(z,np.sqrt(x**2 + y**2))
+    r = np.sqrt(x**2 + y**2 + z**2)
+    return azimuth, elevation, r
+
+
 # %% Run CMD or Terminal Shell
 if __name__ == '__main__':
-    resolutionx = int(720/2) ## Arrumar a translação do sist. ref do kinovea 0.9.4
-    resolutiony = int(220/2)
+    print('\n')
+    print(58*'#')
+    print('KVELBALL.PY'.center(58))
+    print('Velocidade da bola'.center(58))
+    print('Prof. PAULO R. P. SANTIAGO'.center(58))
+    print('LaBioCoM-EEFERP-USP'.center(58))
+    print('paulosantiago@usp.br'.center(58))
+    print('Created on 12/04/2020 - Update on 01/06/2020'.center(58))
+    print(58*'#')
+    print('\n')
+
+    # Definindo os parâmetros das cameras do experimento
+    resolutionx = int(720/2) # Arrumar a translação X do sist. ref do kinovea 0.9.4
+    resolutiony = int(220/2) # Arrumar a translação Y do sist. ref do kinovea 0.9.4
+    freq = 120 # Frequência de amostragem
     
-    # %% Carregando os arquivos das cameras do Kinovea
+    # Carregando os arquivos das cameras do Kinovea
+    # Camera 1
     bola1 = pd.read_csv(str(sys.argv[1]), sep='\s+', skiprows=4, header=None, decimal='.')
     bola1[1] = bola1[1] - -resolutionx
     bola1[2] = -1 * (bola1[2] - resolutiony) 
     bola1 = np.asarray(bola1[[1,2]])
+    bola1b = bola1
     
+    # Camera 2
     bola2 = pd.read_csv(str(sys.argv[2]), sep='\s+', skiprows=4, header=None, decimal='.')
     bola2[1] = bola2[1] - -resolutionx
     bola2[2] = -1 * (bola2[2] - resolutiony) 
     bola2 = np.asarray(bola2[[1,2]])
+    bola2b = bola2
     
+    idx = np.asarray(list(range(len(bola1b))))
+    diffball = abs(np.diff(bola1b[:,0])) > 5
+    diffball = np.insert(diffball, 0, False)
+    phitball = idx[diffball][0]
+    idxbefore = idx[0:phitball-2]
+    idxafter = idx[phitball+1::]
+    idxcimpact = idx[phitball-2:phitball+1]
+
+    print(f'Frame of impact = {phitball}')
+    print(f'Critical impact frames  = {idxcimpact}')
+
     plt.close('all')
     plt.subplot(2,1,1)
     plt.grid(True)
@@ -146,12 +189,13 @@ if __name__ == '__main__':
     
     
     # Carregar arquivos de calibracao 
-    import pdb; pdb.set_trace()
     datcal_c1 = np.asarray(pd.read_csv(str(sys.argv[3]), sep='\s+', header=None))
-    datcal_c1 = datcal_c1[0] - -resolutionx
-
+    datcal_c1[:, 0] = datcal_c1[:, 0] - -resolutionx
+    datcal_c1[:, 1] = -1 * (datcal_c1[:, 1] - resolutiony) 
+    
     datcal_c2 = np.asarray(pd.read_csv(str(sys.argv[4]), sep='\s+', header=None))
-    datcal_c2 = -1 * (datcal_c2[1] - resolutiony) 
+    datcal_c2[:, 0] = datcal_c2[:, 0] - -resolutionx
+    datcal_c2[:, 1] = -1 * (datcal_c2[:, 1] - resolutiony) 
 
     
     ref = np.asarray(pd.read_csv(sys.argv[5], sep='\s+', header=None))
@@ -168,15 +212,75 @@ if __name__ == '__main__':
         cc2ds = np.append([bola1[i, :]], [bola2[i, :]], axis=0)
         cc3d[i, :] = r3d(dlts, cc2ds).T
     
-        
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d') 
-    ax.plot3D(cc3d[:,0], cc3d[:,1], cc3d[:,2], 'ro')
-    ax.plot3D(ref[:,0], ref[:,1], ref[:,2], 'b.')
-    ax.set_zlabel('Z [m]')
-    ax.set_ylabel('Y [m]')
-    ax.set_xlabel('X [m]')
-    plt.title('Calib Points and 3D Ball')
-    plt.show()
+    cc3df = cc3d[idxafter,:]
+    coefsx = np.polyfit(idxafter, cc3df[:,0], 1)
+    coefsy = np.polyfit(idxafter, cc3df[:,1], 1)
+    coefsz = np.polyfit(idxafter, cc3df[:,2], 2)
     
+    cc3df[:,0] = coefsx[0] * idxafter + coefsx[1]
+    cc3df[:,1] = coefsy[0] * idxafter + coefsy[1]
+    cc3df[:,2] = coefsz[0] * idxafter**2 + coefsz[1] * idxafter + coefsz[2]
+    
+    vels = (np.sqrt(np.sum((np.diff(cc3df, axis=0)**2), axis=1))) / (1/freq) * 3.6
+    print(f'Speeds = {vels}')
+
+    vsaida = cc3df[-1:,:] - cc3d[0,:]
+
+    azimuth, elevation, r = cart2sph(vsaida[0][0], vsaida[0][1], vsaida[0][2])
+    pi = np.pi
+    azi = azimuth * 180/pi
+    elev = elevation * 180/pi
+    
+    print(f'Angles: azimuth = {azi}; elevation = {elev}')
+
+
+    plt.figure()
+    plt.subplot(2, 1, 1)
+    plt.grid(True)
+    plt.plot(bola1[:, 0],bola1[:, 1], 'o')
+    plt.xlabel('CAM 1 - Coord. X')
+    plt.ylabel('CAM 1 - Coord. Y')
+    plt.grid(True)
+    
+    resx = 2 * resolutionx
+    resy = 2 * resolutiony
+    plt.title(f'Pixels coordinates (resolution = {resx}X{resy})')
+    plt.subplot(2, 1, 2)
+    plt.plot(bola2[:, 0], bola2[:, 1], 'o')
+    plt.xlabel('CAM 2 - Coord. X')
+    plt.ylabel('CAM 2 - Coord. Y')
+    plt.grid(True)
+    
+    fig2 = plt.figure()
+    ax2 = fig2.add_subplot(111, projection='3d') 
+    ax2.plot3D(cc3d[:,0], cc3d[:,1], cc3d[:,2], 'ro', markersize=10)
+    ax2.plot3D(ref[:,0], ref[:,1], ref[:,2], 'b.')
+    ax2.plot3D(cc3df[:,0], cc3df[:,1], cc3df[:,2], 'k-o')
+    ax2.plot3D([cc3d[0,0],cc3d[0,0]], [cc3d[0,1],cc3d[0,1]], [cc3d[0,2],cc3d[0,2]], 'g.', markersize=10)
+    
+    ax2.set_zlabel('Z [m]')
+    ax2.set_ylabel('Y [m]')
+    ax2.set_xlabel('X [m]')
+    
+    # print(cc3df)
+    distvet = np.sqrt(np.sum((cc3df[-1,:] - cc3df[0,:])**2))
+    
+    velmed = distvet / (len(cc3df) * (1/freq)) * 3.6
+    plt.title(f'Speed (Max = {np.round(max(vels),2)} km/h ; Mean = {np.round(velmed)}); Angles (azi = {np.round(azi,1)}, elev. = {np.round(elev,1)})')
+    plt.show()
+
+    # import pdb; pdb.set_trace() 
+    resultado = list(np.append(vels, [azi, elev, velmed]))
+    np.savetxt(str(sys.argv[6])+'_result.txt', resultado, fmt='%.10f')
+    print(f'Mean Speed = {velmed}')
+    print('\n')
+    
+    # with open(str(sys.argv[6])+'_res.txt', 'w') as output:
+    #     output.write(str(resultado))
+   
+    np.savetxt(str(sys.argv[6])+'.3d', cc3d, fmt='%.10f')
+    np.savetxt(str(sys.argv[6])+'_filt.3d', cc3df, fmt='%.10f')
+
+    # np.savetxt(str(sys.argv[6])+'.txt', resultado, fmt='%.10f')
+
     np.savetxt(str(sys.argv[6])+'.3d', cc3d, fmt='%.10f')
