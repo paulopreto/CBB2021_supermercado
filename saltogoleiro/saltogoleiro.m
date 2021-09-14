@@ -11,10 +11,11 @@ function [ resultado, velcom,velcomc ] = saltogoleiro(dat3d, lado , graficos)
 % 10-Punho Esquerdo, 10-Mao Esquerda, 11-Crista Iliaca Direita,  
 % 12-Joelho Direito, 13-Tornozelo Direito, 14-Calcanhar Direito, 
 % 15-Halux Direito, 16-Crista Iliaca Esquerda, 17-Joelho Esquerdo, 
-% 18-Tornozelo Esquerdo, 19-Calcanhar Esquerdo, 20-Halux Esquerdo, 
+% 18-Tornozelo Esquerdo, 19-Calcanhar Esquerdo, 20-Halux Esquerdo,
+
+% Carregando pacotes
 pkg load io
 pkg load signal
-pkg load image
 
 if nargin == 2;graficos = 1;end
 freq = 120;
