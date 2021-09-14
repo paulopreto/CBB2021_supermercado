@@ -1,4 +1,4 @@
-function [ resultado, velcom,velcomc ] = saltogoleiro(dat, lado , graficos)
+function [ resultado, velcom,velcomc ] = saltogoleiro(dat3d, lado , graficos)
 %Analise do salto de goleiros em cobrancas de penaltis
 %   Prof. Dr. Paulo Roberto Pereira Santiago - LaBioCoM/USP
 %     14/03/2015
@@ -12,8 +12,13 @@ function [ resultado, velcom,velcomc ] = saltogoleiro(dat, lado , graficos)
 % 12-Joelho Direito, 13-Tornozelo Direito, 14-Calcanhar Direito, 
 % 15-Halux Direito, 16-Crista Iliaca Esquerda, 17-Joelho Esquerdo, 
 % 18-Tornozelo Esquerdo, 19-Calcanhar Esquerdo, 20-Halux Esquerdo, 
+pkg load io
+pkg load signal
+pkg load image
+
 if nargin == 2;graficos = 1;end
 freq = 120;
+dat = load(dat3d); 
 
 close all
 nl = size(dat,1);
