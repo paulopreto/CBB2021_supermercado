@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
+  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+    <Title>c1calib</Title>
+  </DocumentProperties>
+  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+    <WindowHeight>12270</WindowHeight>
+    <WindowWidth>14955</WindowWidth>
+    <WindowTopX>720</WindowTopX>
+    <WindowTopY>315</WindowTopY>
+    <ProtectStructure>False</ProtectStructure>
+    <ProtectWindows>False</ProtectWindows>
+  </ExcelWorkbook>
+  <Styles>
+    <Style ss:ID="keyimages-title">
+      <Alignment ss:Horizontal="Center" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+      <Interior ss:Color="#ccffcc" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="chronos-title">
+      <Alignment ss:Horizontal="Center" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+      <Interior ss:Color="#99ccff" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="track-title">
+      <Alignment ss:Horizontal="Center" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+      <Interior ss:Color="#cc99ff" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="data">
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+      <Interior ss:Color="#ffffff" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="header">
+      <Alignment ss:Horizontal="Center" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+      <Interior ss:Color="#C0C0C0" ss:Pattern="Solid" />
+    </Style>
+  </Styles>
+  <Worksheet ss:Name="c1calib">
+    <Table x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="60">
+      <Row>
+        <Cell>
+          <Data ss:Type="String" />
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:MergeAcross="1" ss:StyleID="keyimages-title">
+          <Data ss:Type="String">Key Images</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="header">
+          <Data ss:Type="String">Name</Data>
+        </Cell>
+        <Cell ss:StyleID="header">
+          <Data ss:Type="String">Time</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell>
+          <Data ss:Type="String" />
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:MergeAcross="3" ss:StyleID="keyimages-title">
+          <Data ss:Type="String">Points</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="header">
+          <Data ss:Type="String">Name</Data>
+        </Cell>
+        <Cell ss:StyleID="header">
+          <Data ss:Type="String">X</Data>
+        </Cell>
+        <Cell ss:StyleID="header">
+          <Data ss:Type="String">Y</Data>
+        </Cell>
+        <Cell ss:StyleID="header">
+          <Data ss:Type="String">Time</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">Marker 1</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">-139.06</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">-53.32</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">Marker 2</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">107.44</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">-61.12</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">Marker 3</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">56.75</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">-85.38</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">Marker 4</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">-204.48</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">-75.42</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">Marker 5</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">-142.09</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">21.19</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">Marker 6</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">105.70</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">15.13</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">Marker 7</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">54.58</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">-5.23</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">Marker 8</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">-207.94</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">1.70</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">Marker 9</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">-145.13</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">93.97</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">Marker 10</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">103.97</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">92.24</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">Marker 11</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">52.42</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">77.94</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">Marker 12</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">-211.84</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="Number">80.97</Data>
+        </Cell>
+        <Cell ss:StyleID="data">
+          <Data ss:Type="String">0</Data>
+        </Cell>
+      </Row>
+    </Table>
+  </Worksheet>
+</Workbook>
