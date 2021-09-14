@@ -12,6 +12,7 @@ print(58*'#')
 print('\n')
 '''
 
+# Bibliotecas utilizadas
 import numpy as np
 import pandas as pd
 import scipy as sp
